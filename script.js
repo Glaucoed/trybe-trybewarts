@@ -1,6 +1,8 @@
-const submitButton = document.getElementById('submitButton');
+const loginButton = document.getElementById('submitButton');
 const password = document.getElementById('password');
 const email = document.getElementById('email');
+const submitButton = document.getElementById('submit-btn');
+const agreement = document.getElementById('agreement');
 
 function login() {
   if (password.value === '123456' && email.value === 'tryber@teste.com') {
@@ -9,4 +11,13 @@ function login() {
     alert('Email ou senha inválidos.');
   }
 }
-submitButton.addEventListener('click', login);
+loginButton.addEventListener('click', login);
+
+submitButton.disabled = true;
+agreement.addEventListener('click', () => {
+  if (agreement.checked) {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
+});
